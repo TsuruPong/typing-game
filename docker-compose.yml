@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  app: 
+    container_name: app
+    build:
+      context: ./image
+      dockerfile: Dockerfile.app
+    ports:
+      - "3000:3000"
+    volumes:
+      - type: bind
+        source: ./service/app
+        target: /usr/app
+    working_dir: /usr/app
+    command: ["npm", "run", "dev"]
