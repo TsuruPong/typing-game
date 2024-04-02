@@ -1,3 +1,4 @@
+import { nextui } from "@nextui-org/react";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -5,6 +6,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -15,12 +17,36 @@ const config: Config = {
       },
     },
     colors: {
-      coffie: '#685745',
-      pancho: '#E4CCAD',
-      white: '#ffffff',
-      black: '#000000'
+      transparent: "transparent",
+      current: "current",
+      space_grey: {
+        100: "#9FBDFF",
+        200: "#87A1D9",
+        300: "#7990C2",
+        400: "#6679A3",
+        500: "#515F73",
+        600: "#404C66",
+        700: "#364155",
+        800: "#252C3B",
+        900: "#171B24"
+      },
+      white: "#fff",
+      amber: "#f59e0b",
+      red: "##b91c1c"
     }
   },
-  plugins: [],
+  defaultMode: "class",
+  plugins: [
+    nextui({
+      addCommonColors: true,
+      themes: {
+        "space-grey": {
+          extend: "dark",
+          colors: {
+          }
+        }
+      }
+    })
+  ],
 };
 export default config;
