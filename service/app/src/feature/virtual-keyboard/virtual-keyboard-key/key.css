@@ -1,0 +1,38 @@
+
+.key {
+    @apply p-2;
+    @apply text-center;
+    @apply rounded;
+    @apply border;
+    @apply bg-space_grey-400;
+    @apply select-none;
+}
+
+.standard-key-size {
+    @apply w-10;
+    @apply h-10;
+}
+
+.half-large-key-size {
+    @apply w-14;
+    @apply h-10;
+}
+
+.middle-large-key-size {
+    @apply w-16;
+    @apply h-10;
+}
+
+.large-key-size {
+    @apply w-20;
+    @apply h-10;
+}
+
+.space-key-size {
+    @apply w-60;
+    @apply h-10;
+}
+
+.active {
+    @apply bg-dark_cyan;
+};

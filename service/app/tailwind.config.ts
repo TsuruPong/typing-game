@@ -32,7 +32,8 @@ const config: Config = {
       },
       white: "#fff",
       amber: "#f59e0b",
-      red: "##b91c1c"
+      red: "#b91c1c",
+      dark_cyan: "#469B96"
     }
   },
   defaultMode: "class",

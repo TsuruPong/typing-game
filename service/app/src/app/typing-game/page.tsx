@@ -1,3 +1,4 @@
+import { VirtualKeyBoard } from "@/feature/virtual-keyboard/virtual-keyboard/viatual-keyboard";
 
 export default function Home() {
   return (
@@ -6,12 +7,12 @@ export default function Home() {
         <div className="header">
           header
         </div>
-        <div className="h-full grid grid-rows-[0.7fr,auto]">
+        <div className="h-full grid grid-rows-[1fr,auto]">
           <div className="sentence">
             sentence
           </div>
-          <div className="virtual-keybord">
-            virtual keyboard
+          <div className="virtual-keybord px-[25%] py-[5%]">
+            <VirtualKeyBoard />
           </div>
         </div>
         <div className="footer">
