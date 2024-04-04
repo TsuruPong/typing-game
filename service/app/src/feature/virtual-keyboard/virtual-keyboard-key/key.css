@@ -8,29 +8,34 @@
     @apply select-none;
 }
 
-.standard-key-size {
-    @apply w-10;
-    @apply h-10;
+.tiny-key-size {
+    @apply w-[40px];
+    @apply h-[40px];
+}
+
+.small-key-size {
+    @apply w-[50px];
+    @apply h-[40px];
+}
+
+.medium-key-size {
+    @apply w-[60px];
+    @apply h-[40px];
 }
 
 .half-large-key-size {
-    @apply w-14;
-    @apply h-10;
-}
-
-.middle-large-key-size {
-    @apply w-16;
-    @apply h-10;
+    @apply w-[80px];
+    @apply h-[40px];
 }
 
 .large-key-size {
-    @apply w-20;
-    @apply h-10;
+    @apply w-[100px];
+    @apply h-[40px];
 }
 
 .space-key-size {
-    @apply w-60;
-    @apply h-10;
+    @apply w-[250px];
+    @apply h-[40px];
 }
 
 .active {

@@ -7,11 +7,11 @@ export default function Home() {
         <div className="header">
           header
         </div>
-        <div className="h-full grid grid-rows-[1fr,auto]">
+        <div className="h-full grid grid-rows-[1fr,0.4fr]">
           <div className="sentence">
             sentence
           </div>
-          <div className="virtual-keybord px-[25%] py-[5%]">
+          <div className="virtual-keybord px-[33%]">
             <VirtualKeyBoard />
           </div>
         </div>

@@ -1,9 +1,10 @@
 export const KeyKind = {
-    Standard: "standard",
-    Half: "half-large",
-    Middle: "middle-large",
-    Large: "large",
-    Space: "space"
+    TINY: "tiny",
+    SMALL: "small",
+    MEDIUM: "medium",
+    HALFLARGE: "half-large",
+    LARGE: "large",
+    SPACE: "space"
 } as const;
 
 export type KeyKindType = typeof KeyKind[keyof typeof KeyKind];
