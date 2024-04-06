@@ -1,5 +1,6 @@
 
 export type KeyProps = {
     symbol?: string,
-    kind: string
+    kind: string,
+    isSymbolDisplay: boolean
 };
