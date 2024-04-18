@@ -1,3 +1,4 @@
+import { Subject } from "@/feature/subject/Subject";
 import { VirtualKeyBoard } from "@/feature/virtual-keyboard/virtual-keyboard/viatual-keyboard";
 
 export default function Home() {
@@ -8,12 +9,8 @@ export default function Home() {
           header
         </div>
         <div className="h-full grid grid-rows-[1fr,0.4fr]">
-          <div className="sentence">
-            sentence
-          </div>
-          <div className="virtual-keybord px-[33%]">
-            <VirtualKeyBoard />
-          </div>
+          <Subject />
+          <VirtualKeyBoard />
         </div>
         <div className="footer">
           footer

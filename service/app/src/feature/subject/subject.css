@@ -1,0 +1,29 @@
+
+.timer {
+    @apply text-yellow-400;
+}
+
+.letter {
+    @apply text-space_grey-500;
+}
+
+.collect {
+    @apply text-white;
+}
+
+.uncollect {
+    @apply text-red-600
+}
+
+.calette {
+    @apply w-0.5;
+    @apply h-[23.5px];
+    @apply bg-yellow-300;
+    @apply rounded;
+    @apply inline-block;
+    @apply align-middle;
+}
+
+.text {
+    @apply text-2xl;
+}

@@ -30,10 +30,7 @@ const config: Config = {
         800: "#252C3B",
         900: "#171B24"
       },
-      white: "#fff",
-      amber: "#f59e0b",
-      red: "#b91c1c",
-      dark_cyan: "#469B96"
+      dark_cyan: "#469B96",
     }
   },
   defaultMode: "class",
