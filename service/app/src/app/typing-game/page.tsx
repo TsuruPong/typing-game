@@ -1,4 +1,4 @@
-import { Subject } from "@/feature/subject/Subject";
+import { Subject } from "@/pages/subject/Subject";
 import { VirtualKeyBoard } from "@/feature/virtual-keyboard/virtual-keyboard/viatual-keyboard";
 
 export default function Home() {

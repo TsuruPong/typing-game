@@ -11,7 +11,7 @@
     @apply text-white;
 }
 
-.uncollect {
+.incollect {
     @apply text-red-600
 }
 

@@ -1,8 +1,6 @@
 "use client";
 import * as React from 'react';
-import { motion } from 'framer-motion';
-
-import '../subject.css';
+//import { motion } from 'framer-motion';
 
 export const GameProgressSubject: React.FC = () => {
     const limit = 20;
@@ -23,12 +21,7 @@ export const GameProgressSubject: React.FC = () => {
                     <div />
                     <div className='select-none text'>
                         <span className='letter collect'>t</span>
-                        <span className='letter uncollect'>a</span>
-                        <motion.div
-                            className='calette'
-                            animate={{opacity: 0}}
-                            transition={{repeat: Infinity, repeatType: "mirror", duration: 0.5}}
-                        />
+                        <span className='letter incollect'>a</span>                        
                         <span className='letter'>i</span>
                         <span className='letter'>y</span>
                         <span className='letter'>o</span>

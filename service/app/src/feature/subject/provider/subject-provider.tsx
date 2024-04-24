@@ -3,10 +3,10 @@
 import * as React from 'react';
 import { SubjectContext } from '../component/subject-context';
 import { SubjectState } from '../const/subject-state';
-import { StartMenuSubject } from '../part/start-menu-subject';
-import { CountDownSubject } from '../part/countdown-subject';
-import { GameProgressSubject } from '../part/game-progress-subject';
-import { ResultSubject } from '../part/result-subject';
+import { StartMenuSubject } from '@/pages/subject/start-menu-subject';
+import { CountDownSubject } from '@/pages/subject/countdown-subject';
+import { GameProgressSubject } from '@/pages/subject/game-progress-subject';
+import { ResultSubject } from '@/pages/subject/result-subject';
 
 export const SubjectProvider: React.FC = () => {
     const [subject, setSubject] = React.useState<number>(SubjectState.RESULT);
