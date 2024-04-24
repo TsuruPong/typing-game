@@ -1,0 +1,43 @@
+
+.key {
+    @apply p-2;
+    @apply text-center;
+    @apply rounded;
+    @apply border;
+    @apply bg-space_grey-400;
+    @apply select-none;
+}
+
+.tiny-key-size {
+    @apply w-[40px];
+    @apply h-[40px];
+}
+
+.small-key-size {
+    @apply w-[50px];
+    @apply h-[40px];
+}
+
+.medium-key-size {
+    @apply w-[60px];
+    @apply h-[40px];
+}
+
+.half-large-key-size {
+    @apply w-[80px];
+    @apply h-[40px];
+}
+
+.large-key-size {
+    @apply w-[100px];
+    @apply h-[40px];
+}
+
+.space-key-size {
+    @apply w-[250px];
+    @apply h-[40px];
+}
+
+.active {
+    @apply bg-dark_cyan;
+};
