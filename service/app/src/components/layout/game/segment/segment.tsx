@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { SectionContext } from "@/utils/section/context/context";
-import { SectionState } from "@/config/section/state";
+import { SectionState } from "@/const/section/state";
 import { Top } from "@/components/layout/game/segment/section/top/top";
 import { CountDown } from "@/components/layout/game/segment/section/countdown/countdown";
 import { Game } from "@/components/layout/game/segment/section/game/game";

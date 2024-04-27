@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Key } from "@/components/element/key/key";
-import { KeyConfig, KeyConfigType } from "@/config/vkb/key/config";
+import { KeyConfig, KeyConfigType } from "@/const/key/config";
 
 export const VirtualKeyBoard: React.FC = () => {
   return (
