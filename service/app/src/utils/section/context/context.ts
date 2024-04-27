@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SectionState } from '@/config/section/state';
+import { SectionState } from '@/const/section/state';
 
 export const SectionContext = React.createContext<{
     subject: number;
