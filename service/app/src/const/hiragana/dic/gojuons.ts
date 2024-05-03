@@ -1,7 +1,7 @@
 import { Letter } from "@/types/hiragana/letter";
 import { Hiragana } from "../hiragana";
 
-export const gojuon: Map<string, Letter> = new Map<string, Letter>([
+export const gojuons: Map<string, Letter> = new Map<string, Letter>([
     // あ行
     [Hiragana.A, {hiragana: Hiragana.A, boin: 'a'}],
     [Hiragana.I, {hiragana: Hiragana.I, boin: 'i'}],
