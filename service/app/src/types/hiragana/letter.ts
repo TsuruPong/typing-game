@@ -4,5 +4,5 @@ export type Letter = {
     shiins?: string[],
     boin: string,
     origin?: Letter,
-    youon?: Letter
+    kogaki?: Letter,
 };
