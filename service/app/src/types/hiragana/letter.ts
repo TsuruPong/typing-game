@@ -1,7 +1,7 @@
 
-export interface Letter {
+export type Letter = {
     hiragana: string,
-    shiin?: string[],
+    shiins?: string[],
     boin: string,
     origin?: Letter,
     youon?: Letter
