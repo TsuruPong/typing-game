@@ -5,4 +5,5 @@ export type Letter = {
     boin: string,
     origin?: Letter,
     kogaki?: Letter,
+    moras?: string[]
 };
