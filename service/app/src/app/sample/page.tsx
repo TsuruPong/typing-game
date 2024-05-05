@@ -2,6 +2,24 @@ import {
   generatePredictionTextFromSentence,
   generateYouonSupportPredictionTextFromSentence,
 } from "@/feature/sentence/generator";
+import { Letter } from "@/types/hiragana/letter";
+
+const showMora = (letters: Letter[]) => {
+  return (
+    <ol>
+      {letters.map((letter) => (
+        <li key={Math.random()}>
+          {letter.hiragana}
+          <ol key={Math.random()}>
+            {letter.moras?.map((mora, index) => (
+              <li key={Math.random()}>{mora}</li>
+            ))}
+          </ol>
+        </li>
+      ))}
+    </ol>
+  );
+};
 
 export default function Home() {
   const map1 =
@@ -10,36 +28,18 @@ export default function Home() {
     generateYouonSupportPredictionTextFromSentence(
       "となりのきゃくはよくかきくうきゃくだ"
     );
+  const map3 = generatePredictionTextFromSentence("なんなんだこれは");
   console.log(map1);
   console.log(map2);
+  console.log(map3);
 
   return (
     <main className="m-full h-full">
-      <ol>
-        {map1.map((letter) => (
-          <li key={Math.random()}>
-            {letter.hiragana}
-            <ol key={Math.random()}>
-              {letter.moras?.map((mora, index) => (
-                <li key={Math.random()}>{mora}</li>
-              ))}
-            </ol>
-          </li>
-        ))}
-      </ol>
+      {showMora(map1)}
       <div>========================================================</div>
-      <ol>
-        {map2.map((letter) => (
-          <li key={Math.random()}>
-            {letter.hiragana}
-            <ol key={Math.random()}>
-              {letter.moras?.map((mora, index) => (
-                <li key={Math.random()}>{mora}</li>
-              ))}
-            </ol>
-          </li>
-        ))}
-      </ol>
+      {showMora(map2)}
+      <div>========================================================</div>
+      {showMora(map3)}
     </main>
   );
 }

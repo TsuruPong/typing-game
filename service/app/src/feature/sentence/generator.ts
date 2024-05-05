@@ -1,4 +1,5 @@
 import { HiraganaDictionary } from "@/const/hiragana/dic/dictionary";
+import { gojuons } from "@/const/hiragana/dic/gojuons";
 import { kogakis } from "@/const/hiragana/dic/kogakis";
 import { Hiragana } from "@/const/hiragana/hiragana";
 import { Letter } from "@/types/hiragana/letter";
@@ -38,39 +39,62 @@ export function generateYouonSupportPredictionTextFromSentence(sentence: string)
 }
 
 function generate(chars: string[]) : Letter[] {
+    const nagyouChars = [
+        gojuons.get(Hiragana.NA)?.hiragana,
+        gojuons.get(Hiragana.NI)?.hiragana,
+        gojuons.get(Hiragana.NU)?.hiragana,
+        gojuons.get(Hiragana.NE)?.hiragana,
+        gojuons.get(Hiragana.NO)?.hiragana,
+    ]
+
     let letters: Letter[] = [];
-    for (const char of chars) {
+    for (let i = 0; i < chars.length; i++) {
         let moras: string[] = [];
-        const letter = HiraganaDictionary.get(char);
-        if (!letter) {
-            throw new Error(`chara ${char} is undefined of dictionary`)
+        
+        const current = HiraganaDictionary.get(chars[i]);
+        if (!current) {
+            throw new Error(`chara ${chars[i]} is undefined of dictionary`)
         }
-        moras = [...generateMora(letter)];
-        if (letter.origin && letter.kogaki) {
-            let youonOrigin = generateMora(letter.origin);
-            let youonKogaki = generateMora(letter.kogaki);
+
+        moras = [...generateMora(current)];
+
+        // カレントが拗音
+        if (current.origin && current.kogaki) {
+            let youonOrigin = generateMora(current.origin);
+            let youonKogaki = generateMora(current.kogaki);
             for (const origin of youonOrigin) {
                 for (const kogaki of youonKogaki) {
                     moras.push(`${origin}${kogaki}`)
                 }
             }            
         }
-        const g = {hiragana: char, moras: moras} as Letter;
+
+        // カレントが「ん」かつ次の文字が「な行」以外
+        if (Hiragana.N == current.hiragana) {
+            if (i + 1 < chars.length) {
+                const next = HiraganaDictionary.get(chars[i + 1]);
+                if (!nagyouChars.includes(next?.hiragana)) {
+                    moras.push(current.boin);
+                }
+            }
+        }
+
+        const g = {hiragana: chars[i], moras: moras} as Letter;
         letters.push(g);
     }
     return letters;
 }
 
-function generateMora(letter: Letter) : string[] {
-    let mora: string[] = [];
-    const boin = letter.boin;
-    const shiins = letter.shiins;
+function generateMora(current: Letter, next?: Letter) : string[] {
+    let moras: string[] = [];
+    const boin = current.boin;
+    const shiins = current.shiins;
     if (!shiins) {
-        mora.push(boin);
+        moras.push(boin);
     } else {
         for (const shiin of shiins) {
-            mora.push(`${shiin}${boin}`);
+            moras.push(`${shiin}${boin}`);
         }
     }
-    return mora;
+    return moras;
 }
