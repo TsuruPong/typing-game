@@ -9,7 +9,7 @@ import { Game } from "@/components/layout/game/segment/section/game/game";
 import { Result } from "@/components/layout/game/segment/section/result/result";
 
 export const GameSegment: React.FC = () => {
-  const [subject, setSubject] = React.useState<number>(SectionState.TOP);
+  const [subject, setSubject] = React.useState<number>(SectionState.GAME);
   const subjects = new Map<number, React.ReactNode>([
     [SectionState.TOP, <Top />],
     [SectionState.COUNTDOWN, <CountDown />],

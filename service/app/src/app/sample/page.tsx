@@ -1,24 +1,50 @@
+import {
+  generatePredictionTextFromSentence,
+  generateYouonSupportPredictionTextFromSentence,
+} from "@/feature/sentence/generator";
+import { Letter } from "@/types/hiragana/letter";
+
+const showMora = (letters: Letter[]) => {
+  return (
+    <ol>
+      {letters.map((letter) => (
+        <li key={Math.random()}>
+          {letter.hiragana}
+          <ol key={Math.random()}>
+            {letter.moras?.map((mora) => (
+              <li key={Math.random()}>{mora}</li>
+            ))}
+          </ol>
+        </li>
+      ))}
+    </ol>
+  );
+};
 
 export default function Home() {
-    return (
-      <main className="m-full h-full">
-        <h3 className="flex whitespace-pre-wrap not-prose">sample</h3>
-        <p>color palette</p>
-        <div className="mt-4 -mb-3">
-          <div className="flex flex-row">
-            <div>
-              <div className="rounded-lg bg-coffie w-20 h-20 p-4 font-mono">
-                coffie
-              </div>
-            </div>
-            <div>
-              <div className="rounded-lg bg-pancho w-20 h-20 p-4 font-mono">
-                pancho
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
+  const map1 =
+    generatePredictionTextFromSentence("となりのきゃくはよくかきくうきゃくだ");
+  const map2 =
+    generateYouonSupportPredictionTextFromSentence(
+      "となりのきゃくはよくかきくうきゃくだ"
     );
-  }
-  
+  const map3 = generatePredictionTextFromSentence("なんなんだこれは");
+  const map4 = generatePredictionTextFromSentence("むにゅっとしたしょっかん");
+  const map5 =
+    generateYouonSupportPredictionTextFromSentence("むにゅっとしたしょっかん");
+  console.log(map1);
+  console.log(map2);
+  console.log(map3);
+  console.log(map4);
+  console.log(map5);
+
+  return (
+    <main className="m-full h-full flex">
+      {showMora(map1)}
+      {showMora(map2)}
+      {showMora(map3)}
+      {showMora(map4)}
+      {showMora(map5)}
+    </main>
+  );
+}
