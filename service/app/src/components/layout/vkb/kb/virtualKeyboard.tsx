@@ -7,7 +7,6 @@ import useKeyboardInput from "@/hooks/useKeyboardInput";
 
 export const VirtualKeyBoard: React.FC = () => {
   const keyInput = useKeyboardInput();
-  console.log(keyInput);
 
   return (
     <div className="flex justify-center">
