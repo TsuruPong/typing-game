@@ -11,7 +11,7 @@ const showMora = (letters: Letter[]) => {
         <li key={Math.random()}>
           {letter.hiragana}
           <ol key={Math.random()}>
-            {letter.moras?.map((mora, index) => (
+            {letter.moras?.map((mora) => (
               <li key={Math.random()}>{mora}</li>
             ))}
           </ol>
@@ -29,17 +29,22 @@ export default function Home() {
       "となりのきゃくはよくかきくうきゃくだ"
     );
   const map3 = generatePredictionTextFromSentence("なんなんだこれは");
+  const map4 = generatePredictionTextFromSentence("むにゅっとしたしょっかん");
+  const map5 =
+    generateYouonSupportPredictionTextFromSentence("むにゅっとしたしょっかん");
   console.log(map1);
   console.log(map2);
   console.log(map3);
+  console.log(map4);
+  console.log(map5);
 
   return (
-    <main className="m-full h-full">
+    <main className="m-full h-full flex">
       {showMora(map1)}
-      <div>========================================================</div>
       {showMora(map2)}
-      <div>========================================================</div>
       {showMora(map3)}
+      {showMora(map4)}
+      {showMora(map5)}
     </main>
   );
 }

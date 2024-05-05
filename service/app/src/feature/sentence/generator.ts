@@ -79,6 +79,17 @@ function generate(chars: string[]) : Letter[] {
             }
         }
 
+        // カレントが「っ」
+        if (Hiragana.XTU == current.hiragana) {
+            if (i + 1 < chars.length) {
+                const next = HiraganaDictionary.get(chars[i + 1]);
+                if (!next?.shiins) break;
+                for (const shiin of next?.shiins) {
+                    moras.push(shiin);
+                }
+            }
+        }
+
         const g = {hiragana: chars[i], moras: moras} as Letter;
         letters.push(g);
     }
