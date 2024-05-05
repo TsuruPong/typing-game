@@ -3,8 +3,12 @@
 import * as React from "react";
 import { Key } from "@/components/element/key/key";
 import { KeyConfig, KeyConfigType } from "@/const/key/config";
+import useKeyboardInput from "@/hooks/useKeyboardInput";
 
 export const VirtualKeyBoard: React.FC = () => {
+  const keyInput = useKeyboardInput();
+  console.log(keyInput);
+
   return (
     <div className="flex justify-center">
       <div className="grid grid-rows-5">
@@ -14,10 +18,11 @@ export const VirtualKeyBoard: React.FC = () => {
               {line.map((key: KeyConfigType) => {
                 return (
                   <Key
-                    key={`key-${key.symbol}`}
+                    key={`key-${key.code}`}
                     symbol={key.symbol}
                     kind={key.kind}
-                    isSymbolDisplay={key.isSymbolDisplay}
+                    code={key.code}
+                    isPress={keyInput.includes(key.code)}
                   />
                 );
               })}

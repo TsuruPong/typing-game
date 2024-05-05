@@ -1,7 +1,10 @@
+"use client";
+
 import {
   generatePredictionTextFromSentence,
   generateYouonSupportPredictionTextFromSentence,
 } from "@/feature/sentence/generator";
+import useKeyboardInput from "@/hooks/useKeyboardInput";
 import { Letter } from "@/types/hiragana/letter";
 
 const showMora = (letters: Letter[]) => {
@@ -32,6 +35,7 @@ export default function Home() {
   const map4 = generatePredictionTextFromSentence("むにゅっとしたしょっかん");
   const map5 =
     generateYouonSupportPredictionTextFromSentence("むにゅっとしたしょっかん");
+  const keyInput = useKeyboardInput();
   console.log(map1);
   console.log(map2);
   console.log(map3);
@@ -45,6 +49,7 @@ export default function Home() {
       {showMora(map3)}
       {showMora(map4)}
       {showMora(map5)}
+      <>{keyInput}</>
     </main>
   );
 }
