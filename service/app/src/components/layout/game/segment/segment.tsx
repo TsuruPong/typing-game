@@ -3,10 +3,10 @@
 import * as React from "react";
 import { SectionContext } from "@/utils/section/context/context";
 import { SectionState } from "@/const/section/state";
-import { Top } from "@/components/layout/game/segment/section/top/top";
-import { CountDown } from "@/components/layout/game/segment/section/countdown/countdown";
-import { Game } from "@/components/layout/game/segment/section/game/game";
-import { Result } from "@/components/layout/game/segment/section/result/result";
+import { Top } from "@/components/layout/game/segment/section/top";
+import { CountDown } from "@/components/layout/game/segment/section/countdown";
+import { Game } from "@/components/layout/game/segment/section/game";
+import { Result } from "@/components/layout/game/segment/section/result";
 
 export const GameSegment: React.FC = () => {
   const [subject, setSubject] = React.useState<number>(SectionState.GAME);

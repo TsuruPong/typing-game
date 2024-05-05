@@ -1,5 +1,5 @@
 import { GameSegment } from "@/components/layout/game/segment/segment";
-import { VirtualKeyBoard } from "@/components/layout/vkb/kb/viatual-keyboard";
+import { VirtualKeyBoard } from "@/components/layout/vkb/kb/virtualKeyboard";
 
 export default function Home() {
   return (
