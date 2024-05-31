@@ -14,7 +14,7 @@ export default function Home() {
           <div>
             <GameSegment />
           </div>
-          <div>
+          <div className="flex justify-center">
             <VirtualKeyBoard />
           </div>
         </div>
