@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@emotion/css": "^11.11.2",
+    "@emotion/react": "^11.11.4",
     "@nextui-org/react": "^2.2.10",
     "framer-motion": "^11.0.24",
     "next": "14.1.4",
