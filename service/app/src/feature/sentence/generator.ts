@@ -8,6 +8,9 @@ import { Letter } from "@/types/hiragana/letter";
 export function generatePredictionTextFromSentence(
   sentence: string,
 ): Letter[] {
+  if (! sentence) {
+    throw new Error(`sentence is ${sentence}`)
+  }
   const youonChars = [
     kogakis.get(Hiragana.XA)?.hiragana,
     kogakis.get(Hiragana.XI)?.hiragana,
