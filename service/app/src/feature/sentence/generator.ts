@@ -3,14 +3,18 @@ import { gojuons } from "@/const/hiragana/dic/gojuons";
 import { kogakis } from "@/const/hiragana/dic/kogakis";
 import { youons } from "@/const/hiragana/dic/youons";
 import { Hiragana } from "@/const/hiragana/hiragana";
+import { TreeNode } from "@/domain/structure/tree";
 import { Letter } from "@/types/hiragana/letter";
 
 export function generatePredictionTextFromSentence(
   sentence: string,
 ): Letter[] {
-  if (! sentence) {
-    throw new Error(`sentence is ${sentence}`)
-  }
+  if (!sentence) throw new Error(`sentence is ${sentence}`);
+  const chars = splitSentence(sentence);
+  return generate(chars);
+}
+
+function splitSentence(sentence: string): string[] {
   const youonChars = [
     kogakis.get(Hiragana.XA)?.hiragana,
     kogakis.get(Hiragana.XI)?.hiragana,
@@ -35,8 +39,7 @@ export function generatePredictionTextFromSentence(
     }
     chars.push(current);
   }
-
-  return generate(chars);
+  return chars;
 }
 
 function generate(chars: string[]): Letter[] {
@@ -98,3 +101,37 @@ function generateMora(current: Letter): string[] {
   if (!current.shiins)  return [current.boin];
   return current.shiins.map(shiin => `${shiin}${current.boin}`);
 }
+
+export function generateMoraTree(letters: Letter[]): TreeNode {
+  return buildMorasTree(new TreeNode(), [...letters]);
+}
+
+function buildMorasTree(tree: TreeNode, letters: Letter[]): TreeNode {
+  buildRecMorasTree([tree], letters);
+  return tree;
+}
+
+function buildRecMorasTree(parents: TreeNode[], letters: Letter[]): void {
+  if (letters.length == 0) return ;
+  const currentLetter = letters.shift();
+  let currentNodes = [];
+  if (!currentLetter?.moras) throw new Error(`invalid mora ${currentLetter?.hiragana} : ${currentLetter}`);
+  for (let i = 0; i < currentLetter.moras.length; i++) {
+    let p = new TreeNode();
+    const splited = [...currentLetter.moras[i]];
+    for (const c of splited) {
+      if (!p.value) {
+        p = new TreeNode(c);
+        for (let parent of parents) {
+          parent.addNode(p);
+        }
+      } else {
+        const child = new TreeNode(c);
+        p.addNode(child);
+        p = child;
+      }
+    }
+    currentNodes.push(p);
+  }
+  buildRecMorasTree(currentNodes, letters);
+} 
