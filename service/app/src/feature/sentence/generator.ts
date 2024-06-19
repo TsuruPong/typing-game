@@ -1,3 +1,4 @@
+/*
 import { HiraganaDictionary } from "@/const/hiragana/dic/dictionary";
 import { gojuons } from "@/const/hiragana/dic/gojuons";
 import { kogakis } from "@/const/hiragana/dic/kogakis";
@@ -135,3 +136,4 @@ function buildRecMorasTree(parents: TreeNode[], letters: Letter[]): void {
   }
   buildRecMorasTree(currentNodes, letters);
 } 
+*/
