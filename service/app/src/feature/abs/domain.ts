@@ -1,16 +1,16 @@
-import { IAbstractSubject } from "./heads";
+import { IAbstractDomain } from "./heads";
 
 /**
  * Interface representing a word subject.
  */
-export interface IWord extends IAbstractSubject<IWord> {}
+export interface IWord extends IAbstractDomain<IWord> {}
 
 /**
  * Interface representing a mora subject.
  */
-export interface IMora extends IAbstractSubject<IMora> {}
+export interface IMora extends IAbstractDomain<IMora> {}
 
 /**
  * Interface representing a tree subject.
  */
-export interface ITree extends IAbstractSubject<ITree> {}
+export interface ITree extends IAbstractDomain<ITree> {}

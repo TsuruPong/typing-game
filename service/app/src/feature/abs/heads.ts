@@ -12,7 +12,7 @@ export interface IFactory<TFactory extends IFactory<TFactory>> extends IMarker<T
 /**
  * Abstract factory interface.
  */
-export interface IAbstractFactory<TDomain extends IAbstractSubject<TDomain>> extends IFactory<TDomain>{
+export interface IAbstractFactory<TDomain extends IAbstractDomain<TDomain>> extends IFactory<TDomain>{
     /**
      * Builds a new instance of TDomain.
      * @param detail
@@ -29,7 +29,7 @@ export interface IDomain<TDomain extends IDomain<TDomain>> extends IMarker<TDoma
 /**
  * Abstract domain interface.
  */
-export interface IAbstractSubject<TDomain extends IAbstractSubject<TDomain>> extends IDomain<TDomain> {}
+export interface IAbstractDomain<TDomain extends IAbstractDomain<TDomain>> extends IDomain<TDomain> {}
 
 /**
  * Detail interface.
@@ -39,4 +39,4 @@ export interface IDetail<TDomain extends IDomain<TDomain>> extends IMarker<TDoma
 /**
  * Abstract detail interface.
  */
-export interface IAbstractDetail<TDomain extends IAbstractSubject<TDomain>> extends IDetail<TDomain> {}
+export interface IAbstractDetail<TDomain extends IAbstractDomain<TDomain>> extends IDetail<TDomain> {}
