@@ -12,31 +12,31 @@ export interface IFactory<TFactory extends IFactory<TFactory>> extends IMarker<T
 /**
  * Abstract factory interface.
  */
-export interface IAbstractFactory<TSubject extends IAbstractSubject<TSubject>> extends IFactory<TSubject>{
+export interface IAbstractFactory<TDomain extends IAbstractSubject<TDomain>> extends IFactory<TDomain>{
     /**
-     * Builds a new instance of TSubject.
+     * Builds a new instance of TDomain.
      * @param detail
-     * @returns A new instance of TSubject.
+     * @returns A new instance of TDomain.
      */
-    build<TDetail extends IAbstractDetail<TSubject>>(detail: TDetail): TSubject;
+    build<TDetail extends IAbstractDetail<TDomain>>(detail: TDetail): TDomain;
 }
 
 /**
- * Subject interface.
+ * Domain interface.
  */
-export interface ISubject<TSubject extends ISubject<TSubject>> extends IMarker<TSubject> {}
+export interface IDomain<TDomain extends IDomain<TDomain>> extends IMarker<TDomain> {}
 
 /**
- * Abstract subject interface.
+ * Abstract domain interface.
  */
-export interface IAbstractSubject<TSubject extends IAbstractSubject<TSubject>> extends ISubject<TSubject> {}
+export interface IAbstractSubject<TDomain extends IAbstractSubject<TDomain>> extends IDomain<TDomain> {}
 
 /**
  * Detail interface.
  */
-export interface IDetail<TSubject extends ISubject<TSubject>> extends IMarker<TSubject> {}
+export interface IDetail<TDomain extends IDomain<TDomain>> extends IMarker<TDomain> {}
 
 /**
  * Abstract detail interface.
  */
-export interface IAbstractDetail<TSubject extends IAbstractSubject<TSubject>> extends IDetail<TSubject> {}
+export interface IAbstractDetail<TDomain extends IAbstractSubject<TDomain>> extends IDetail<TDomain> {}

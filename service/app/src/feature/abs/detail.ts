@@ -1,5 +1,5 @@
 import { IAbstractDetail } from "./heads";
-import { IMora, ITree, IWord } from "./structures";
+import { IMora, ITree, IWord } from "./domain";
 
 /**
  * Detail interface for generating IWord instances.

@@ -1,5 +1,5 @@
 import { IAbstractFactory } from "./heads";
-import { IMora, ITree, IWord } from "./structures";
+import { IMora, ITree, IWord } from "./domain";
 
 /**
  * Factory interface for creating IWord instances.
