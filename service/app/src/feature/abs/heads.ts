@@ -7,18 +7,18 @@ export interface IMarker<TMark extends IMarker<TMark>> {}
 /**
  * Factory interface.
  */
-export interface IFactory<TFactory extends IFactory<TFactory>> extends IMarker<TFactory>{}
+export interface IFactory<TFactory extends IFactory<TFactory, TDomain, TDetail>, TDomain extends IDomain<TDomain>, TDetail extends IDetail<TDetail>> extends IMarker<TFactory>{}
 
 /**
- * Abstract factory interface.
+ * Abstract factory class.
  */
-export interface IAbstractFactory<TDomain extends IAbstractDomain<TDomain>> extends IFactory<TDomain>{
+export abstract class FactoryBase<TDomain extends IDomain<TDomain>, TDetail extends IDetail<TDetail>> implements IFactory<FactoryBase<TDomain, TDetail>, TDomain, TDetail> {
     /**
      * Builds a new instance of TDomain.
      * @param detail
      * @returns A new instance of TDomain.
      */
-    build<TDetail extends IAbstractDetail<TDomain>>(detail: TDetail): TDomain;
+    abstract build(detail?: TDetail): TDomain | TDomain[] | null;
 }
 
 /**
@@ -27,16 +27,6 @@ export interface IAbstractFactory<TDomain extends IAbstractDomain<TDomain>> exte
 export interface IDomain<TDomain extends IDomain<TDomain>> extends IMarker<TDomain> {}
 
 /**
- * Abstract domain interface.
- */
-export interface IAbstractDomain<TDomain extends IAbstractDomain<TDomain>> extends IDomain<TDomain> {}
-
-/**
  * Detail interface.
  */
 export interface IDetail<TDomain extends IDomain<TDomain>> extends IMarker<TDomain> {}
-
-/**
- * Abstract detail interface.
- */
-export interface IAbstractDetail<TDomain extends IAbstractDomain<TDomain>> extends IDetail<TDomain> {}
