@@ -52,8 +52,8 @@ export class WordFactory implements FactoryBase<IWord, IWordGenerateDetail<IWord
         Hiragana.XYO,
     ];
 
-    build(detail?: IWordGenerateDetail<IWord> | undefined): IWord[] | null{
-        if (!detail) return null;
+    build(detail: IWordGenerateDetail<IWord>): IWord[] {
+        if (!detail) throw new Error(``);
         const words: Word[] = [];
         const splited = [...detail.getSentence()];
         for (let i = 0; i < splited.length; i++) {
@@ -65,11 +65,10 @@ export class WordFactory implements FactoryBase<IWord, IWordGenerateDetail<IWord
                 const next = splited[i + 1];
                 if (this.youonChars.includes(next)) {
                     words.push(new Word(`${current}${next}`));
+                    continue;
                 }
-            } else {
-                words.push(new Word(current));
             }
-
+            words.push(new Word(current));
         }
         return words;
     }

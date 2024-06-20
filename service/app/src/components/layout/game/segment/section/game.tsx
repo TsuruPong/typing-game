@@ -4,6 +4,7 @@ import * as React from "react";
 import { css } from "@emotion/react";
 
 import useKeyboardInput from "@/hooks/useKeyboardInput";
+import useLetterBuilder from "@/hooks/useLetterBuilder";
 
 export const Game: React.FC = () => {
   const limit = 20;
@@ -22,6 +23,8 @@ export const Game: React.FC = () => {
       ruby: "とうきょうとっきょきょかきょくきょかきょくちょう",
     };
     setSentence(sentence);
+    const letter = useLetterBuilder(sentence.ruby);
+    console.log(letter);
   }, []);
 
   return (

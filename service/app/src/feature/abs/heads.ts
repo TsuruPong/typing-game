@@ -18,7 +18,7 @@ export abstract class FactoryBase<TDomain extends IDomain<TDomain>, TDetail exte
      * @param detail
      * @returns A new instance of TDomain.
      */
-    abstract build(detail?: TDetail): TDomain | TDomain[] | null;
+    abstract build(detail: TDetail | TDetail[]): TDomain | TDomain[];
 }
 
 /**

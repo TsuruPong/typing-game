@@ -41,7 +41,7 @@ export interface IMoraGenerateDetail<TMora extends IMora> extends IDetail<TMora>
 
 export class MoraGenerateDetail implements IMoraGenerateDetail<IMora> {
     private words: IWord[];
-    constructor(words: Word[]) {
+    constructor(words: IWord[]) {
         if (!words) throw new Error(`illegal argument words : ${words}`);
         this.words = words;
     }
@@ -60,8 +60,8 @@ export class MoraFactory implements FactoryBase<IMora, IMoraGenerateDetail<IMora
         Hiragana.NO,
     ];
     
-    build(detail?: IMoraGenerateDetail<IMora> | undefined): IMora[] | null {
-        if (!detail) return null;
+    build(detail: IMoraGenerateDetail<IMora>): IMora[] {
+        if (!detail) throw new Error(``);
         const mora: Mora[] = [];
         for(let i = 0; i < detail.getWords().length; i++) {
             const currentWord = detail.getWords()[i].getWord();
