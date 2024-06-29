@@ -105,7 +105,7 @@ export class MoraFactory implements FactoryBase<IMora, IMoraGenerateDetail<IMora
     }
 
     private generateMora(current: Letter): string[] {
-        if (!current.shiins)  return [current.boin];
+        if (current.shiins.length == 0)  return [current.boin];
         return current.shiins.map(shiin => `${shiin}${current.boin}`);
     }
 }
